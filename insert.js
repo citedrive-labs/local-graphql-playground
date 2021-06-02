@@ -8,7 +8,7 @@ knex("example")
       label: "Lorem",
     },
     {
-      uuid: "6d741c46-c3ba-11eb-8529-0242ac130003",
+      uuid: "533r3qr-c3ba-11eb-8529-0242ac130003",
       label: "ipsum",
     },
     {

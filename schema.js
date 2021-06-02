@@ -12,7 +12,7 @@ database.run("PRAGMA foreign_keys=ON");
 
 
 let ExampleType = new graphql.GraphQLObjectType({
-  name: "Table",
+  name: "example",
   fields: {
     uuid: { type: graphql.GraphQLString },
     label: { type: graphql.GraphQLString },
@@ -27,7 +27,7 @@ let queryType = new graphql.GraphQLObjectType({
       type: graphql.GraphQLList(ExampleType), // RefType
       resolve: (root, args, context, info) => {
         return new Promise((resolve, reject) => {
-          database.all("SELECT * FROM project", function (err, rows) {
+          database.all("SELECT * FROM example", function (err, rows) {
             if (err) {
               reject([]);
             }
