@@ -1,6 +1,6 @@
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
-const db_Path = path.resolve(__dirname, "db/project.sqlite");
+const db_Path = path.resolve(__dirname, "db/example.sqlite");
 const database = new sqlite3.Database(db_Path);
 const graphql = require("graphql");
 const { GraphQLJSON, GraphQLJSONObject } = require("graphql-type-json");
