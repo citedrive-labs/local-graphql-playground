@@ -8,19 +8,15 @@ const knex = require("knex")({
   useNullAsDefault: true,
 });
 
-// Create Project_Table
 
 knex.schema
-  .hasTable("project")
+  .hasTable("table")
   .then((exists) => {
     if (!exists) {
       return knex.schema
-        .createTable("project", (table) => {
+        .createTable("table", (table) => {
           table.string("uuid").primary();
           table.string("label");
-          table.string("type");
-          table.string("urlLocal");
-          table.string("urlCloud");
         })
         .catch((error) => {
           console.error(`Set up : ${error}`);
