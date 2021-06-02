@@ -1,7 +1,7 @@
 const knex = require("./db");
 
 
-knex("table")
+knex("example")
   .insert([
     {
       uuid: "67f14b18-c3ba-11eb-8529-0242ac130003",
@@ -19,10 +19,10 @@ knex("table")
   ])
   .then(() => {
     // Send a success message in response
-    console.log("ref_group insert: done!");
+    console.log("tableinsert: done!");
   })
   .catch((err) => {
     // Send a error message in response
-    console.log("error: insert(reference)", err);
+    console.log("error: insert(table)", err);
   });
 

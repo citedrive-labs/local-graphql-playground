@@ -10,11 +10,11 @@ const knex = require("knex")({
 
 
 knex.schema
-  .hasTable("table")
+  .hasTable("example")
   .then((exists) => {
     if (!exists) {
       return knex.schema
-        .createTable("table", (table) => {
+        .createTable("example", (table) => {
           table.string("uuid").primary();
           table.string("label");
         })

@@ -1,20 +1,18 @@
 const sqlite3 = require("sqlite3").verbose();
-
 const path = require("path");
 const db_Path = path.resolve(__dirname, "db/project.sqlite");
 const database = new sqlite3.Database(db_Path);
-
 const graphql = require("graphql");
 const { GraphQLJSON, GraphQLJSONObject } = require("graphql-type-json");
-const { ObjectType, Field } = require("type-graphql"); // Remove
+
 
 database.run("PRAGMA foreign_keys=ON");
 
 
 
 
-let ProjectType = new graphql.GraphQLObjectType({
-  name: "Project",
+let ExampleType = new graphql.GraphQLObjectType({
+  name: "Table",
   fields: {
     uuid: { type: graphql.GraphQLString },
     label: { type: graphql.GraphQLString },
@@ -25,8 +23,8 @@ let ProjectType = new graphql.GraphQLObjectType({
 let queryType = new graphql.GraphQLObjectType({
   name: "Query",
   fields: {
-    Project: {
-      type: graphql.GraphQLList(ProjectType), // RefType
+    Table: {
+      type: graphql.GraphQLList(ExampleType), // RefType
       resolve: (root, args, context, info) => {
         return new Promise((resolve, reject) => {
           database.all("SELECT * FROM project", function (err, rows) {
@@ -42,7 +40,7 @@ let queryType = new graphql.GraphQLObjectType({
     
 
     search: {
-      type: graphql.GraphQLList(RefType),
+      type: graphql.GraphQLList(ExampleType),
       args: {
         search: {
           type: new graphql.GraphQLNonNull(graphql.GraphQLString),
@@ -78,7 +76,7 @@ var mutationRefType = new graphql.GraphQLObjectType({
   fields: {
 
     createProject: {
-      type: ProjectType,
+      type: ExampleType,
       args: {
         uuid: {
           type: new graphql.GraphQLNonNull(graphql.GraphQLString),
