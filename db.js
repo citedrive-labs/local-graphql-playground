@@ -1,5 +1,5 @@
 const path = require("path");
-const library = path.resolve(__dirname, "db/example.sqlite");
+const library = path.resolve(__dirname, "db/project.sqlite");
 const knex = require("knex")({
   client: "sqlite3",
   connection: {
