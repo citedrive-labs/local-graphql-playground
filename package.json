@@ -1,0 +1,30 @@
+{
+  "name": "citedrive-desktop-api",
+  "version": "0.1.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "citation-js": "^0.5.0-alpha.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.6.0",
+    "graphql-type-json": "^0.3.2",
+    "knex": "^0.21.1",
+    "lodash": ">=4.17.19",
+    "node-gyp": "^7.1.0",
+    "node-pre-gyp": "^0.15.0",
+    "sqlite3": "^5.0.0",
+    "type-graphql": "^1.0.0-rc.3"
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^1.0.5"
+  }
+}
